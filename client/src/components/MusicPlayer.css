@@ -1,0 +1,40 @@
+.music-player {
+  position: fixed;
+  bottom: 0;
+  left: 240px; /* Adjust if sidebar width changes */
+  right: 0;
+  background: #222;
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  border-top: 1px solid #444;
+  z-index: 1000;
+  left: 220px;
+}
+
+.music-player img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.music-player .info {
+  flex: 1;
+}
+
+.music-player h4 {
+  margin: 0;
+  font-size: 16px;
+  color: white;
+}
+
+.music-player p {
+  margin: 4px 0;
+  color: #ccc;
+}
+
+.music-player audio {
+  width: 100%;
+}
