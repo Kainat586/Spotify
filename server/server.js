@@ -15,21 +15,6 @@ app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 // ✅ Then register routes
 app.use('/api/songs', songRoutes);
 
-// Optional: Dummy data
-const songs = [
-  {
-    title: 'Let Me Love You',
-    artist: 'DJ Snake',
-    imagePath: 'uploads/images/letmeloveyou.jpg',
-    audioPath: 'uploads/audio/letmeloveyou.mp3',
-  },
-];
-
-// Optional GET route
-app.get('/api/songs', (req, res) => {
-  res.json(songs);
-});
-
 // ✅ Start server
 const PORT = 5000;
 app.listen(PORT, () => {

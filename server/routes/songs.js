@@ -19,7 +19,15 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage });
 
-let songs = []; // (In-memory; replace with DB if needed)
+let songs = [
+  // Default songs for testing
+  {
+    title: 'Let Me Love You',
+    artist: 'DJ Snake',
+    imagePath: 'uploads/images/letmeloveyou.jpg',
+    audioPath: 'uploads/audio/letmeloveyou.mp3',
+  }
+]; // (In-memory; replace with DB if needed)
 
 // Upload route
 router.post('/upload', upload.fields([
@@ -47,7 +55,14 @@ router.post('/upload', upload.fields([
 
 // Get songs
 router.get('/', (req, res) => {
-  res.json(songs);
+  try {
+    console.log('Songs retrieved:', songs);
+    res.json(songs);
+    
+  } catch (error) {
+    console.error('Error retrieving songs:', error);
+    res.status(500).json({ error: 'Failed to retrieve songs' });
+  }
 });
 
 module.exports = router;
