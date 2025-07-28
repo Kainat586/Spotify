@@ -2,8 +2,15 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const cors = require('cors');
-const mongoose = require('mongoose'); // if using MongoDB
+const mongoose = require('mongoose');
+const connectDB = require('./config/config');
 const songRoutes = require('./routes/songs');
+
+// Load environment variables
+require('dotenv').config();
+
+// Connect to database
+connectDB();
 
 // ✅ CORS comes first
 app.use(cors());
